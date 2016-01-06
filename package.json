@@ -1,6 +1,6 @@
 {
   "name": "open-github-notifications",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Open GitHub notifications in your browser",
   "license": "MIT",
   "repository": "RichardLitt/open-github-notifications",
@@ -33,6 +33,5 @@
     "octokat": "^0.4.15",
     "open": "0.0.5"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
