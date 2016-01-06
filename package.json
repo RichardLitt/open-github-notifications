@@ -1,0 +1,38 @@
+{
+  "name": "open-github-notifications",
+  "version": "0.0.0",
+  "description": "Open GitHub notifications in your browser",
+  "license": "MIT",
+  "repository": "RichardLitt/open-github-notifications",
+  "author": {
+    "name": "Richard Littauer",
+    "email": "richard.littauer@gmail.com",
+    "url": "burntfen.com"
+  },
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "git",
+    "GitHub",
+    "notifications"
+  ],
+  "dependencies": {
+    "bluebird": "^3.1.1",
+    "meow": "^3.6.0",
+    "octokat": "^0.4.15",
+    "open": "0.0.5"
+  },
+  "devDependencies": {
+  }
+}
