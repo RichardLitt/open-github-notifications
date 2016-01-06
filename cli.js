@@ -5,7 +5,7 @@ var openGithubNotifications = require('./')
 
 var cli = meow([
 	'Usage',
-	'  $ open-github-notifications <org> <repo> <amount>',
+	'  $ open-github-notifications <organization> <repository> <amount>',
 	'',
 	'Examples',
 	'  $ open-github-notifications ipfs go-ipfs 15',

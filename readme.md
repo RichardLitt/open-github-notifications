@@ -16,27 +16,27 @@ Make sure to [create a token off of GitHub](https://github.com/settings/tokens) 
 ```js
 const openGithubNotifications = require('open-github-notifications');
 
-openGithubNotifications('ipfs', 'go-ipfs', 3);
+openGithubNotifications('ipfs', 'go-ipfs', 15);
 //=> 'Now opening 15 notifications from ipfs/go-ipfs...''
 ```
 
 ## API
 
-### openGithubNotifications(org, repo, amount)
+### openGithubNotifications(organization, repository, amount)
 
-#### org
+#### organization
 
 Type: `string`
 
-The organisation to open
+The organization to open
 
-#### repo
+#### repository
 
 Type: `string`
 
 The repository to get notifications for
 
-#### org
+#### amount
 
 Type: `int`
 
