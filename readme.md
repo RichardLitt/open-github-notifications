@@ -36,12 +36,17 @@ Type: `string`
 
 The repository to get notifications for
 
-#### amount
+#### -a, amount
 
 Type: `int`
+Default: 30.
 
 The amount to open (cannot be more than 50 at once).
 
+#### -p, participating
+
+Type: `flag`
+Default: false.
 
 ## CLI
 

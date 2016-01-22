@@ -29,8 +29,9 @@
   ],
   "dependencies": {
     "bluebird": "^3.1.1",
-    "meow": "^3.6.0",
-    "octokat": "^0.4.15",
+    "ghauth": "^3.2.0",
+    "meow": "^3.7.0",
+    "octokat": "^0.4.16",
     "open": "0.0.5"
   },
   "devDependencies": {}

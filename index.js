@@ -1,22 +1,35 @@
-var Octokat = require('octokat')
-var octo = new Octokat({
-  token: process.env.GITHUB_OGN_TOKEN
-})
-var open = require('open')
-var Promise = require('bluebird')
+const Octokat = require('octokat')
+const open = require('open')
+const Promise = require('bluebird')
+var octo
 
-module.exports = function openNotifications (organization, repository, amount) {
-  return Promise.resolve().then(function () {
-    return octo.repos(organization, repository, 'notifications').fetch()
-  }).some(parseInt(amount, 10)).map(function (repo) {
-    var res = repo.subject.url
-			.replace(/(https\:\/\/)api\./, '$1')
-			.replace(/\/repos\//, '/')
-			.replace(/\/pulls\//, '/pull/')
-    open(res)
-  }).then(function () {
-    console.log('Now opening %d notifications from %s/%s...', amount, organization, repository)
-  }).catch(function (err) {
-    console.err(err)
+module.exports = function openNotifications (organization, repository, opts, token) {
+  octo = new Octokat({
+    token: token || process.env.GITHUB_OGN_TOKEN
+  })
+
+  return Promise.resolve().then(() => {
+    if (!organization && !repository) {
+      return octo.notifications.fetch({
+        participating: opts.participating || false
+      })
+    } else {
+      return octo.repos(organization, repository, 'notifications').fetch()
+    }
+  }).then((result) => {
+    if (result) {
+      return result.some(opts.amount || 30).map((repo) => {
+        var res = repo.subject.url
+          .replace(/(https\:\/\/)api\./, '$1')
+          .replace(/\/repos\//, '/')
+          .replace(/\/pulls\//, '/pull/')
+        open(res)
+        return `Opened notifications.`
+      })
+    } else {
+      return `No notifications.`
+    }
+  }).catch((err) => {
+    console.log(err)
   })
 }
