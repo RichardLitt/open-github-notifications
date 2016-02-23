@@ -28,20 +28,22 @@ openGithubNotifications('ipfs', 'go-ipfs', 15);
 
 Type: `string`
 
-The organization to open
+The organization to open.
 
 #### repository
 
 Type: `string`
 
-The repository to get notifications for
+The repository to get notifications for. This can also be included with the organization, with the syntax:
+
+    organization/repository
 
 #### -a, amount
 
 Type: `int`
 Default: 30.
 
-The amount to open (cannot be more than 50 at once).
+The amount to open (cannot be more than 50 at once). This can also be provided as the last argument.
 
 #### -p, participating
 
@@ -59,6 +61,7 @@ $ npm install --global open-github-notifications
 
   Usage
     $ open-github-notifications <org> <repo> <amount>
+    $ open-github-notifications <org>/<repo> <amount>
 
   Examples
     $ open-github-notifications ipfs go-ipfs 15

@@ -32,7 +32,11 @@ const cli = meow([`
 Promise.try(() => {
   return ghauth(authOptions)
 }).then((authData) => {
-  return openGithubNotifications(cli.input[0], cli.input[1], cli.flags, authData.token)
+  if (cli.input.length >= 2) {
+    return openGithubNotifications(cli.input, cli.flags, authData.token)
+  } else {
+    console.log('Not enough args!')
+  }
 }).then((result) => {
   console.log(result)
 })

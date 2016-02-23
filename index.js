@@ -1,12 +1,29 @@
 const Octokat = require('octokat')
 const open = require('open')
 const Promise = require('bluebird')
-var octo
+var octo, organization, repository
 
-module.exports = function openNotifications (organization, repository, opts, token) {
+module.exports = function openNotifications (input, opts, token) {
   octo = new Octokat({
     token: token || process.env.GITHUB_OGN_TOKEN
   })
+  var amount = opts.amount || 30
+
+  if (input[0].split('/').length === 2) {
+    organization = input[0].split('/')[0]
+    repository = input[0].split('/')[1]
+    if (Number.isInteger(input[1])) {
+      amount = input[1]
+    }
+  } else {
+    organization = input[0]
+    repository = input[1]
+    amount = input[2] || amount
+  }
+
+  console.log('Organization:', organization)
+  console.log('Repository:', repository)
+  console.log('Amount:', amount)
 
   return Promise.resolve().then(() => {
     if (!organization && !repository) {
@@ -18,7 +35,7 @@ module.exports = function openNotifications (organization, repository, opts, tok
     }
   }).then((result) => {
     if (result) {
-      return result.some(opts.amount || 30).map((repo) => {
+      return result.some(amount).map((repo) => {
         var res = repo.subject.url
           .replace(/(https\:\/\/)api\./, '$1')
           .replace(/\/repos\//, '/')
