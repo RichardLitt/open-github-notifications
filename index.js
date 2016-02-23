@@ -31,14 +31,16 @@ module.exports = function openNotifications (input, opts, token) {
     }
   }).then((result) => {
     if (result) {
+      if (result.length < amount) {
+        amount = result.length
+      }
       return Promise.some(result, amount).map((repo) => {
         var res = repo.subject.url
           .replace(/(https\:\/\/)api\./, '$1')
           .replace(/\/repos\//, '/')
           .replace(/\/pulls\//, '/pull/')
         open(res)
-        return `Opened notifications.`
-      })
+      }).then(() => `Opened notifications.`)
     } else {
       return `No notifications.`
     }
