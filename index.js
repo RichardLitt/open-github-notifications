@@ -21,10 +21,6 @@ module.exports = function openNotifications (input, opts, token) {
     amount = input[2] || amount
   }
 
-  console.log('Organization:', organization)
-  console.log('Repository:', repository)
-  console.log('Amount:', amount)
-
   return Promise.resolve().then(() => {
     if (!organization && !repository) {
       return octo.notifications.fetch({
@@ -35,7 +31,7 @@ module.exports = function openNotifications (input, opts, token) {
     }
   }).then((result) => {
     if (result) {
-      return result.some(amount).map((repo) => {
+      return Promise.some(result, amount).map((repo) => {
         var res = repo.subject.url
           .replace(/(https\:\/\/)api\./, '$1')
           .replace(/\/repos\//, '/')
