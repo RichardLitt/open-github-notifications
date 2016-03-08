@@ -1,6 +1,6 @@
 {
   "name": "open-github-notifications",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Open GitHub notifications in your browser",
   "license": "MIT",
   "repository": "RichardLitt/open-github-notifications",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {},
   "coordinates": [
-    42.3891404,
-    -71.1198683
+    42.3633441,
+    -71.10043019999999
   ]
 }
