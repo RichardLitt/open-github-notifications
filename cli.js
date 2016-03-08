@@ -20,6 +20,9 @@ const cli = meow([`
     -p, --participating Only participating notifications. [Default: false]
 
 	Examples
+     $ open-github-notifications ifps/go-ipfs
+     Now opening 30 notifications from ipfs/go-ipfs...
+
      $ open-github-notifications ipfs go-ipfs -a15 -p
      Now opening 15 participating notifications from ipfs/go-ipfs...
 `], {
@@ -32,10 +35,10 @@ const cli = meow([`
 Promise.try(() => {
   return ghauth(authOptions)
 }).then((authData) => {
-  if (cli.input.length >= 2) {
+  if (cli.input.length >= 1) {
     return openGithubNotifications(cli.input, cli.flags, authData.token)
   } else {
-    console.log('Not enough args!')
+    console.log('Error: You must specify an organization and repository.')
   }
 }).then((result) => {
   console.log(result)
