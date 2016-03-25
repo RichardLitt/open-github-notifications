@@ -39,7 +39,6 @@ Promise.try(() => {
     return openGithubNotifications(cli.input, cli.flags, authData.token)
   } else {
     return openGithubNotifications(null, cli.flags, authData.token)
-    console.log('Error: You must specify an organization and repository.')
   }
 }).then((result) => {
   console.log(result)
