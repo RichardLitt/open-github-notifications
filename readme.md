@@ -60,12 +60,15 @@ $ npm install --global open-github-notifications
   Open GitHub notifications in your browser
 
   Usage
+    $ open-github-notifications
     $ open-github-notifications <org> <repo> <amount>
     $ open-github-notifications <org>/<repo> <amount>
 
   Examples
+    $ open-github-notifications
+    Opened 30 notifications.
     $ open-github-notifications ipfs go-ipfs 15
-    Now opening 15 notifications from ipfs/go-ipfs...
+    Opened 15 notifications.
 ```
 
 
