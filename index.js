@@ -9,13 +9,13 @@ module.exports = function openNotifications (input, opts, token) {
   })
   var amount = opts.amount || 30
 
-  if (input[0].split('/').length === 2) {
+  if (input && input[0].split('/').length === 2) {
     organization = input[0].split('/')[0]
     repository = input[0].split('/')[1]
     if (Number.isInteger(input[1])) {
       amount = input[1]
     }
-  } else {
+  } else if (input) {
     organization = input[0]
     repository = input[1]
     amount = input[2] || amount
@@ -40,9 +40,9 @@ module.exports = function openNotifications (input, opts, token) {
           .replace(/\/repos\//, '/')
           .replace(/\/pulls\//, '/pull/')
         open(res)
-      }).then(() => `Opened notifications.`)
+      }).then(() => `Opened ${amount} notifications.`)
     } else {
-      return `No notifications.`
+      return `No new notifications. (ᐛ)`
     }
   }).catch((err) => {
     console.log(err)
