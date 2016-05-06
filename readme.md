@@ -41,7 +41,7 @@ The repository to get notifications for. This can also be included with the orga
 #### -a, amount
 
 Type: `int`
-Default: 30.
+Default: 15.
 
 The amount to open (cannot be more than 50 at once). This can also be provided as the last argument.
 
@@ -66,7 +66,7 @@ $ npm install --global open-github-notifications
 
   Examples
     $ open-github-notifications
-    Opened 30 notifications.
+    Opened 15 notifications.
     $ open-github-notifications ipfs go-ipfs 15
     Opened 15 notifications.
 ```

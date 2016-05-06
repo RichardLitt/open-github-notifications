@@ -16,15 +16,15 @@ const cli = meow([`
     $ open-github-notifications <organization> <repository> [options]
 
   Options
-    -a, --amount  The amount to open. [Default: 30]
+    -a, --amount  The amount to open. [Default: 15]
     -p, --participating Only participating notifications. [Default: false]
 
 	Examples
      $ open-github-notifications ifps/go-ipfs
-     Now opening 30 notifications from ipfs/go-ipfs...
+     Now opening 15 notifications from ipfs/go-ipfs...
 
-     $ open-github-notifications ipfs go-ipfs -a15 -p
-     Now opening 15 participating notifications from ipfs/go-ipfs...
+     $ open-github-notifications ipfs go-ipfs -a10 -p
+     Now opening 10 participating notifications from ipfs/go-ipfs...
 `], {
   alias: {
     a: 'amount',

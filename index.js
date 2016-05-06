@@ -7,7 +7,7 @@ module.exports = function openNotifications (input, opts, token) {
   octo = new Octokat({
     token: token || process.env.GITHUB_OGN_TOKEN
   })
-  var amount = opts.amount || 30
+  var amount = opts.amount || 15
 
   if (input && input[0].split('/').length === 2) {
     organization = input[0].split('/')[0]
