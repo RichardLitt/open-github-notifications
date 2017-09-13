@@ -1,5 +1,7 @@
 # open-github-notifications [![Build Status](https://travis-ci.org/RichardLitt/open-github-notifications.svg?branch=master)](https://travis-ci.org/RichardLitt/open-github-notifications)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/RichardLitt/open-github-notifications.svg)](https://greenkeeper.io/)
+
 > Open GitHub notifications from your command line
 
 
